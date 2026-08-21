@@ -82,7 +82,7 @@ export const verify_otp = async (req, res) => {
             return res.status(401).json({ status: false, msg: "Invalid OTP. Please try again." })
         }
 
-        await user_models.findOneAndUpdate(
+        await user_models.findOneAndUpdate( 
             { _id: id },
             { $set: { 'user.isVerify': true, 'user.userotp': null, 'user.otpExpire': null } }
         )
